@@ -21,7 +21,7 @@ export const CartModal = () => {
       <Modal.Body>
         {cartItems.length ? (
           cartItems?.map((item) => (
-            <Row className="align-items-center text-center">
+            <Row key={item.title} className="align-items-center text-center">
               <Col xs={3}>
                 <img src={item.image} alt={item.title} height="100" />
               </Col>

@@ -13,10 +13,14 @@ const reducer = combineReducers({
   cart: cartReducer,
 });
 
-const cartItemsFromStorage = [];
-// window.localStorage.getItem("cartItems")
-//   ? JSON.parse(window.localStorage.getItem("cartItems"))
-//   : [];
+const ISSERVER = typeof window === "undefined";
+let cartItemsFromStorage = [];
+
+if (!ISSERVER) {
+  cartItemsFromStorage = window.localStorage.getItem("cartItems")
+    ? JSON.parse(window.localStorage.getItem("cartItems"))
+    : [];
+}
 
 const initialState = {
   cart: {

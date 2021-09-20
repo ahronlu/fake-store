@@ -1,4 +1,4 @@
-import { Row, Spinner, Alert } from "react-bootstrap";
+import { Row, Spinner } from "react-bootstrap";
 import { ProductCard } from "../components";
 
 export default function Home({ products }) {
@@ -16,7 +16,7 @@ export default function Home({ products }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const res = await fetch("https://fakestoreapi.com/products?limit=4");
   const products = await res.json();
 
